@@ -1,0 +1,145 @@
+name: Playwright Tests
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      testType:
+        description: 'Test type (smoke, regression, or all). Use without @, e.g. "smoke"'
+        required: true
+        default: 'all'
+      folder:
+        description: 'Optional tests folder to run (e.g. src/tests). Leave empty to run all tests.'
+        required: true
+        default: 'all'
+      singleTest:
+        description: 'Optional single test file path to run (overrides folder).'
+        required: true
+        default: 'all'
+
+jobs:
+  test:
+    name: Run tests on ${{ matrix.browser }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      matrix:
+        browser: [chromium, firefox, webkit]
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Cache node modules
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Playwright tests for ${{ matrix.browser }}
+        id: run-tests
+        run: |
+          set -e
+          TEST_TYPE='${{ github.event.inputs.testType }}'
+          FOLDER='${{ github.event.inputs.folder }}'
+          SINGLE='${{ github.event.inputs.singleTest }}'
+
+          GREP_OP=''
+          if [ -n "$TEST_TYPE" ] && [ "$TEST_TYPE" != "all" ]; then
+            GREP_OP="--grep=@$TEST_TYPE"
+          fi
+
+          PATH_OP=''
+          if [ -n "$SINGLE" ]; then
+            PATH_OP="$SINGLE"
+          elif [ -n "$FOLDER" ]; then
+            PATH_OP="$FOLDER"
+          fi
+
+          BROWSER="${{ matrix.browser }}"
+          CMD="npx playwright test $PATH_OP $GREP_OP --retries=1 --workers=4 --project=$BROWSER --reporter=html"
+          echo "Running: $CMD"
+          set +e
+          eval $CMD
+          EXIT_CODE=$?
+          set -e
+
+          # Rename report folder to avoid collisions when uploading artifacts from matrix
+          if [ -d playwright-report ]; then
+            mv playwright-report playwright-report-$BROWSER
+          fi
+
+          echo "exit_code=$EXIT_CODE" >> $GITHUB_OUTPUT
+
+      - name: Upload Playwright HTML report artifact (${{ matrix.browser }})
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report-${{ matrix.browser }}
+          path: playwright-report-${{ matrix.browser }}
+          retention-days: 7
+
+      - name: Set job output exit_code
+        run: echo "exit_code=${{ steps.run-tests.outputs.exit_code }}"
+
+  publish:
+    name: Publish HTML report to GitHub Pages
+    needs: test
+    runs-on: ubuntu-latest
+    if: always()
+    permissions:
+      contents: write
+      pages: write
+    steps:
+      - name: Download all test artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: ./artifacts
+
+      - name: Choose report to publish
+        id: choose
+        run: |
+          # prefer chromium report if present
+          if [ -d ./artifacts/playwright-report-chromium ]; then
+            echo "report_dir=artifacts/playwright-report-chromium" >> $GITHUB_OUTPUT
+          else
+            # pick the first playwright-report-* directory
+            R=$(ls -d artifacts/playwright-report-* 2>/dev/null | head -n1 || true)
+            if [ -n "$R" ]; then
+              echo "report_dir=$R" >> $GITHUB_OUTPUT
+            else
+              echo "report_dir=" >> $GITHUB_OUTPUT
+            fi
+
+      - name: Publish chosen report to gh-pages
+        if: steps.choose.outputs.report_dir != ''
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ${{ steps.choose.outputs.report_dir }}
+          publish_branch: gh-pages
+          allow_empty_commit: true
+
+      - name: Print Playwright report link
+        run: |
+          OWNER=${{ github.repository_owner }}
+          REPO=${{ github.event.repository.name }}
+          echo "Playwright HTML Report: https://$OWNER.github.io/$REPO/"

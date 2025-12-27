@@ -10,7 +10,7 @@ test.beforeEach(async ({ page }) => {
   await loginPage.login(LoginData.username, LoginData.password);
 });
 
-test('TC_INV_001: Verify Add to cart the Item', async ({ page }) => {
+test('TC_INV_001: Verify Add to cart the Item @smoke @regression', async ({ page }) => {
   const inventory = new InventoryPage(page);
   await test.step('Verify Add to Cart Item functionality', async () => {
     await inventory.addFirstProduct(); 
@@ -21,7 +21,7 @@ test('TC_INV_001: Verify Add to cart the Item', async ({ page }) => {
   });
 });
 
-test('TC_INV_002: Verify Item Remove from cart', async ({ page }) => {
+test('TC_INV_002: Verify Item Remove from cart @smoke @regression', async ({ page }) => {
   const inventory = new InventoryPage(page);
 
    await test.step('Verify Add to Cart Item functionality', async () => {

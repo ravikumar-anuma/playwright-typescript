@@ -8,6 +8,7 @@ export class LoginPage {
   private password: Locator;
   private loginButton: Locator;
   private swagLabsText: Locator;
+  private errorMessage: Locator;
 
 
   constructor(page: Page) {
@@ -16,6 +17,7 @@ export class LoginPage {
     this.password = page.locator('#password');
     this.loginButton = page.locator('#login-button');
     this.swagLabsText = page.locator('.app_logo');
+    this.errorMessage = page.locator('[data-test="error"]');
   }
 
   async navigate() {
@@ -30,5 +32,9 @@ export class LoginPage {
   }
   async verifySwagLabsText() {
     await expect(this.swagLabsText).toHaveText('Swag Labs');
+  }
+
+  async isErrorDisplayed() {
+    await expect(this.errorMessage).toBeVisible();
   }
 }

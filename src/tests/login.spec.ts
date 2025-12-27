@@ -4,7 +4,7 @@ import { LoginPage } from '../pages/LoginPage';
 import { LoginData } from '../testdata/LoginData';
 import { InventoryPage } from '../pages/InventoryPage';
 
-test('Sauce login test', async ({ page }) => {
+test('Sauce login test @smoke @regression', async ({ page }) => {
 
   await test.step('Login to application', async () => {
     const loginPage = new LoginPage(page);
@@ -22,13 +22,24 @@ test('Sauce login test', async ({ page }) => {
   });
 });
 
-test('DashBoard View test', async ({ page }) => {
+test('DashBoard View test @smoke @regression', async ({ page }) => {
   const loginPage = new LoginPage(page);
   await test.step('Login to application', async () => {
     await loginPage.navigate();
-    await loginPage.login(LoginData.username, LoginData.password);
+    await loginPage.login(LoginData.InvalidCredentials.username, LoginData.InvalidCredentials.password);
   });
-  await test.step('Verify Swag Labs text', async () => {
+  await test.step('Verify Swag Labs Text Verification', async () => {
     await loginPage.verifySwagLabsText();
+  });
+});
+
+test('Invalid Credentials test @smoke', async ({ page }) => {
+  const loginPage = new LoginPage(page);
+  await test.step('Login to application', async () => {
+    await loginPage.navigate();
+    await loginPage.login(LoginData.InvalidCredentials.username, LoginData.InvalidCredentials.password);
+  });
+  await test.step('Verify Invalid Credentials Error Message', async () => {
+    await loginPage.isErrorDisplayed();
   });
 });
