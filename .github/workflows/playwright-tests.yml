@@ -5,10 +5,19 @@ on:
     branches: [main]
   workflow_dispatch:
     inputs:
+      suite:
+        description: 'Test suites to run (e.g. smoke, regression, or all). Use without @, e.g. "smoke"'
+        required: false
+        default: 'all'
+        type: choice
+        options:
+          - smoke
+          - regression
+          - all
       testType:
         description: 'Test type (smoke, regression, or all). Use without @, e.g. "smoke"'
         required: true
-        default: 'all'
+        default: 'smoke'
       folder:
         description: 'Optional tests folder to run (e.g. src/tests). Leave empty to run all tests.'
         required: true
@@ -17,6 +26,7 @@ on:
         description: 'Optional single test file path to run (overrides folder).'
         required: true
         default: 'all'
+      
 
 jobs:
   test:

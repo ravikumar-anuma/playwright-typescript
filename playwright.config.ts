@@ -7,9 +7,9 @@ export default defineConfig({
   retries: 1,
   reporter: [['list'], ['html', { open: 'never' }]],
   use: {
-    headless: false, // headed mode by default
+    headless: process.env.CI ? true : false,
     viewport: null,
-    video: 'on', // record video for all tests (workflow will keep artifacts)
+    video: 'on',
     screenshot: 'on',
     trace: 'retain-on-failure',
     launchOptions: {
