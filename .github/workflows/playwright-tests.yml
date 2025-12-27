@@ -104,7 +104,8 @@ jobs:
           retention-days: 7
 
       - name: Show test exit code
-        run: echo "Test exit code: ${{ steps.run-tests.outputs.exit_code }}"
+        run: |
+          echo "Test exit code: ${{ steps.run-tests.outputs.exit_code }}"
 
   publish:
     name: Publish HTML report to GitHub Pages
