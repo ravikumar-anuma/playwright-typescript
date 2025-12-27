@@ -25,9 +25,9 @@ jobs:
     timeout-minutes: 60
     strategy:
       matrix:
-        browser: [chromium, firefox, webkit]
+        browser: [chromium]
     permissions:
-      contents: write
+      contents: read
       pages: write
       id-token: write
 
