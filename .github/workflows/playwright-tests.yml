@@ -128,6 +128,7 @@ jobs:
             else
               echo "report_dir=" >> $GITHUB_OUTPUT
             fi
+          fi
 
       - name: Publish chosen report to gh-pages
         if: steps.choose.outputs.report_dir != ''
