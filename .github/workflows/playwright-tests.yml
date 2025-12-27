@@ -21,11 +21,11 @@ on:
       folder:
         description: 'Optional tests folder to run (e.g. src/tests). Leave empty to run all tests.'
         required: true
-        default: 'all'
+        default: ''
       singleTest:
         description: 'Optional single test file path to run (overrides folder).'
         required: true
-        default: 'all'
+        default: ''
       
 
 jobs:
@@ -111,46 +111,46 @@ jobs:
         run: echo "exit_code=${{ steps.run-tests.outputs.exit_code }}"
 
   publish:
-    name: Publish HTML report to GitHub Pages
-    needs: test
-    runs-on: ubuntu-latest
-    if: always()
-    permissions:
-      contents: write
-      pages: write
-    steps:
-      - name: Download all test artifacts
-        uses: actions/download-artifact@v4
-        with:
-          path: ./artifacts
+  name: Publish HTML report to GitHub Pages
+  needs: test
+  runs-on: ubuntu-latest
+  if: always()
+  permissions:
+    pages: write
+    id-token: write
 
-      - name: Choose report to publish
-        id: choose
-        run: |
-          # prefer chromium report if present
-          if [ -d ./artifacts/playwright-report-chromium ]; then
-            echo "report_dir=artifacts/playwright-report-chromium" >> $GITHUB_OUTPUT
+  steps:
+    - name: Download test artifacts
+      uses: actions/download-artifact@v4
+      with:
+        path: ./artifacts
+
+    - name: Choose report to publish
+      id: choose
+      run: |
+        if [ -d ./artifacts/playwright-report-chromium ]; then
+          echo "report_dir=./artifacts/playwright-report-chromium" >> $GITHUB_OUTPUT
+        else
+          R=$(ls -d ./artifacts/playwright-report-* 2>/dev/null | head -n1 || true)
+          if [ -n "$R" ]; then
+            echo "report_dir=$R" >> $GITHUB_OUTPUT
           else
-            # pick the first playwright-report-* directory
-            R=$(ls -d artifacts/playwright-report-* 2>/dev/null | head -n1 || true)
-            if [ -n "$R" ]; then
-              echo "report_dir=$R" >> $GITHUB_OUTPUT
-            else
-              echo "report_dir=" >> $GITHUB_OUTPUT
-            fi
+            echo "No report found"
+            exit 1
           fi
+        fi
 
-      - name: Publish chosen report to gh-pages
-        if: steps.choose.outputs.report_dir != ''
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ${{ steps.choose.outputs.report_dir }}
-          publish_branch: gh-pages
-          allow_empty_commit: true
+    - name: Upload report to Pages
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: ${{ steps.choose.outputs.report_dir }}
 
-      - name: Print Playwright report link
-        run: |
-          OWNER=${{ github.repository_owner }}
-          REPO=${{ github.event.repository.name }}
-          echo "Playwright HTML Report: https://$OWNER.github.io/$REPO/"
+    - name: Deploy to GitHub Pages
+      uses: actions/deploy-pages@v4
+
+    - name: Print Playwright report link
+      run: |
+        OWNER=${{ github.repository_owner }}
+        REPO=${{ github.event.repository.name }}
+        echo "Playwright HTML Report:"
+        echo "https://$OWNER.github.io/$REPO/"
