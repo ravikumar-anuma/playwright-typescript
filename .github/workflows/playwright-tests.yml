@@ -61,14 +61,7 @@ jobs:
 
           GREP_OP=''
           if [ -n "$TEST_TYPE" ] && [ "$TEST_TYPE" != "all" ]; then
-            # When running smoke only, exclude regression-only tests.
-            # Tests tagged with both @smoke and @regression will be excluded from regression runs
-            # when running smoke. Use grep-invert to avoid matching @regression when smoke is selected.
-            if [ "$TEST_TYPE" = "smoke" ]; then
-              GREP_OP="--grep=@smoke --grep-invert=@regression"
-            else
-              GREP_OP="--grep=@$TEST_TYPE"
-            fi
+            GREP_OP="--grep=@$TEST_TYPE"
           fi
 
           PATH_OP=''
