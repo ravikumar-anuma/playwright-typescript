@@ -7,21 +7,13 @@ on:
     inputs:
       testType:
         description: 'Test type (smoke, regression, or all). Use without @, e.g. "smoke"'
-        required: false
+        required: true
         default: 'all'
         type: choice
         options:
           - smoke
           - regression
           - all
-      folder:
-        description: 'Optional tests folder to run (e.g. src/tests). Leave empty to run all tests.'
-        required: false
-        default: ''
-      singleTest:
-        description: 'Optional single test file path to run (overrides folder).'
-        required: false
-        default: ''
 
 jobs:
   test:
