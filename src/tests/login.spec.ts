@@ -26,7 +26,7 @@ test('DashBoard View test @smoke @regression', async ({ page }) => {
   const loginPage = new LoginPage(page);
   await test.step('Login to application', async () => {
     await loginPage.navigate();
-    await loginPage.login(LoginData.InvalidCredentials.username, LoginData.InvalidCredentials.password);
+    await loginPage.login(LoginData.username, LoginData.password);
   });
   await test.step('Verify Swag Labs Text Verification', async () => {
     await loginPage.verifySwagLabsText();

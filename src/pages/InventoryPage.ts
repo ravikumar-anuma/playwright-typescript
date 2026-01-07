@@ -29,7 +29,6 @@ export class InventoryPage {
     this.RemoveFromCartButton = this.page.locator('[data-test="remove-sauce-labs-backpack"]');
     this.title = this.page.locator('.title');
     this.productItems = page.locator('.inventory_item');
-    this.cartIcon = page.locator('.shopping_cart_link');
     this.cartBadge = page.locator('.shopping_cart_badge');
     this.checkoutButton = page.getByRole('button', { name: 'Checkout' });
     this.FirstNameInput = page.getByRole('textbox', { name: 'First Name' });
@@ -44,34 +43,25 @@ export class InventoryPage {
   }
 
   public async addFirstProduct() {
-    await this.AddToCartButton.waitFor({ state: 'visible' });
     await this.AddToCartButton.click();
-    await this.page.waitForTimeout(1000);
     console.log('Add to Cart functionality works correctly.');
 
   }
 
   public async removeProduct() {
-    await this.RemoveFromCartButton.waitFor({ state: 'visible' });
     await this.RemoveFromCartButton.click();
-    await this.page.waitForTimeout(1000);
     console.log('Remove from Cart functionality works correctly.');
   }
   public async fillShippingInformation() {
     // Fill in shipping information
     await this.cartBadge.click();
-    await this.page.waitForTimeout(1000);
     await this.checkoutButton.click();
-    await this.page.waitForTimeout(1000);
 
     await this.FirstNameInput.fill(CheckoutData.firstName);
     await this.LastNameInput.fill(CheckoutData.lastName);
     await this.PostalCodeInput.fill(CheckoutData.postalCode);
-    await this.page.waitForTimeout(1000);
     await this.continueButton.click();
-    await this.page.waitForTimeout(1000);
     await this.finishButton.click();
-    await this.page.waitForTimeout(1000);
     await expect(this.orderCompleteMessage).toHaveText(CheckoutData.ShoppingCart.SUCCESS_MESSAGE);
     console.log('Fill Shipping Information functionality works correctly.');
   
@@ -79,11 +69,8 @@ export class InventoryPage {
 
 
   public async logout() {
-    await this.menuButton.waitFor({ state: 'visible' });
     await this.menuButton.click();
-    await this.page.waitForTimeout(1000);
     await this.logoutButton.click();
-    await this.page.waitForTimeout(1000);
     console.log('Logout Successful.');
 
   }
