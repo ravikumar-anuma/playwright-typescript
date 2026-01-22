@@ -19,6 +19,7 @@
     "D": "^1.0.0",
     "dotenv": "^17.2.3",
     "node-fetch": "^3.3.2",
-    "openai": "^6.15.0"
+    "openai": "^6.15.0",
+    "playwright-smart-reporter": "^1.0.3"
   }
 }
