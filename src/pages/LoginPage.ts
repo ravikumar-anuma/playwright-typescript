@@ -28,7 +28,6 @@ export class LoginPage {
     await this.userName.fill(username);
     await this.password.fill(password);
     await this.loginButton.click();
-    await this.page.waitForTimeout(3000);
   }
   async verifySwagLabsText() {
     await expect(this.swagLabsText).toHaveText('Swag Labs');

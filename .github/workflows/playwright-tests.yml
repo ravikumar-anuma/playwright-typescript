@@ -9,24 +9,27 @@ on:
         description: 'Test type (smoke, regression, or all). Use without @, e.g. "smoke"'
         required: true
         default: 'all'
-        type: choice
-        options:
-          - smoke
-          - regression
-          - all
+      folder:
+        description: 'Optional tests folder to run (e.g. src/tests). Leave empty to run all tests.'
+        required: true
+        default: 'all'
+      singleTest:
+        description: 'Optional single test file path to run (overrides folder).'
+        required: true
+        default: 'all'
 
 jobs:
   test:
-    name: Run tests on ${{ matrix.browser }}
     runs-on: ubuntu-latest
     timeout-minutes: 60
-    strategy:
-      matrix:
-        browser: [chromium]
     permissions:
-      contents: read
+      contents: write
       pages: write
       id-token: write
+
+    concurrency:
+      group: playwright-tests-${{ github.ref }}
+      cancel-in-progress: false
 
     steps:
       - name: Checkout repository
@@ -51,19 +54,22 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      - name: Run Playwright tests for ${{ matrix.browser }}
+      - name: Run Playwright tests
         id: run-tests
         run: |
           set -e
+          # Determine grep filter
           TEST_TYPE='${{ github.event.inputs.testType }}'
           FOLDER='${{ github.event.inputs.folder }}'
           SINGLE='${{ github.event.inputs.singleTest }}'
 
           GREP_OP=''
           if [ -n "$TEST_TYPE" ] && [ "$TEST_TYPE" != "all" ]; then
+            # Playwright uses regex-style grep; we tag tests with @smoke etc. We pass grep for @tag
             GREP_OP="--grep=@$TEST_TYPE"
           fi
 
+          # Determine path to run (single test overrides folder)
           PATH_OP=''
           if [ -n "$SINGLE" ]; then
             PATH_OP="$SINGLE"
@@ -71,79 +77,55 @@ jobs:
             PATH_OP="$FOLDER"
           fi
 
-          BROWSER="${{ matrix.browser }}"
-          CMD="npx playwright test $PATH_OP $GREP_OP --retries=1 --workers=4 --project=$BROWSER --reporter=html"
+          # Build command. Keep retries=1 and workers=4 (parallelism). Reporter generates HTML into playwright-report
+          CMD="npx playwright test $PATH_OP $GREP_OP --retries=1 --workers=4 --reporter=html"
           echo "Running: $CMD"
+          # Run tests but avoid failing the job here so we can always collect/upload report and publish it.
           set +e
           eval $CMD
           EXIT_CODE=$?
           set -e
 
-          # Rename report folder to avoid collisions when uploading artifacts from matrix
+          # Ensure report directory exists
           if [ -d playwright-report ]; then
-            mv playwright-report playwright-report-$BROWSER
+            echo "Report generated at playwright-report"
+          else
+            echo "No playwright-report directory found (tests may have failed before report generation)"
           fi
 
-          # expose exit code as step output
+          # preserve exit code for later step
           echo "exit_code=$EXIT_CODE" >> $GITHUB_OUTPUT
 
-      - name: Upload Playwright HTML report artifact (${{ matrix.browser }})
+      - name: Upload Playwright HTML report artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-report-${{ matrix.browser }}
-          path: playwright-report-${{ matrix.browser }}
+          name: playwright-report
+          path: playwright-report
           retention-days: 7
 
-      - name: Show test exit code
-        run: |
-          echo "Test exit code: ${{ steps.run-tests.outputs.exit_code }}"
-
-  publish:
-    name: Publish HTML report to GitHub Pages
-    needs: test
-    runs-on: ubuntu-latest
-    if: always()
-    permissions:
-      contents: write
-      pages: write
-      id-token: write
-
-    steps:
-      - name: Download test artifacts
-        uses: actions/download-artifact@v4
+      - name: Publish Playwright HTML report to GitHub Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          path: ./artifacts
-
-      - name: Choose report to publish
-        id: choose
-        run: |
-          # prefer chromium report if present
-          if [ -d ./artifacts/playwright-report-chromium ]; then
-            echo "report_dir=./artifacts/playwright-report-chromium" >> $GITHUB_OUTPUT
-          else
-            R=$(ls -d ./artifacts/playwright-report-* 2>/dev/null | head -n1 || true)
-            if [ -n "$R" ]; then
-              echo "report_dir=$R" >> $GITHUB_OUTPUT
-            else
-              echo "No report found"
-              exit 1
-            fi
-          fi
-
-      - name: Upload report to Pages
-        if: steps.choose.outputs.report_dir != ''
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ${{ steps.choose.outputs.report_dir }}
-
-      - name: Deploy to GitHub Pages
-        if: steps.choose.outputs.report_dir != ''
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: playwright-report
+          publish_branch: gh-pages
+          allow_empty_commit: true
 
       - name: Print Playwright report link
+        if: always()
         run: |
           OWNER=${{ github.repository_owner }}
           REPO=${{ github.event.repository.name }}
-          echo "Playwright HTML Report:"
-          echo "https://$OWNER.github.io/$REPO/"
+          echo "Playwright HTML Report: https://$OWNER.github.io/$REPO/"
+
+      - name: End job with test exit code
+        if: always()
+        run: |
+          # Fail job if tests failed (exit code != 0)
+          echo "Collected exit code: ${{ steps.run-tests.outputs.exit_code }}"
+          if [ "${{ steps.run-tests.outputs.exit_code }}" != "0" ]; then
+            echo "One or more tests failed. Exiting with non-zero status."
+            exit ${{ steps.run-tests.outputs.exit_code }}
+          fi

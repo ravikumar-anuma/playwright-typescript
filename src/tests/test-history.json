@@ -1,0 +1,138 @@
+{
+  "runs": [
+    {
+      "runId": "run-1769045380034",
+      "timestamp": "2026-01-22T01:29:40.034Z"
+    },
+    {
+      "runId": "run-1769045397642",
+      "timestamp": "2026-01-22T01:29:57.642Z"
+    },
+    {
+      "runId": "run-1769045460698",
+      "timestamp": "2026-01-22T01:31:00.698Z"
+    },
+    {
+      "runId": "run-1769045473667",
+      "timestamp": "2026-01-22T01:31:13.667Z"
+    }
+  ],
+  "tests": {
+    "seed.spec.ts::seed": [
+      {
+        "passed": true,
+        "duration": 1175,
+        "timestamp": "2026-01-22T01:31:20.332Z",
+        "runId": "run-1769045473667",
+        "skipped": false,
+        "retry": 0
+      }
+    ],
+    "Inventory.spec.ts::TC_INV_001: Verify Add to cart the Item @smoke @regression": [
+      {
+        "passed": true,
+        "duration": 2340,
+        "timestamp": "2026-01-22T01:31:20.332Z",
+        "runId": "run-1769045473667",
+        "skipped": false,
+        "retry": 0
+      }
+    ],
+    "login.spec.ts::Sauce login test @smoke @regression": [
+      {
+        "passed": true,
+        "duration": 3007,
+        "timestamp": "2026-01-22T01:31:20.332Z",
+        "runId": "run-1769045473667",
+        "skipped": false,
+        "retry": 0
+      }
+    ],
+    "login.spec.ts::DashBoard View test @smoke @regression": [
+      {
+        "passed": true,
+        "duration": 1176,
+        "timestamp": "2026-01-22T01:31:20.332Z",
+        "runId": "run-1769045473667",
+        "skipped": false,
+        "retry": 0
+      }
+    ],
+    "Inventory.spec.ts::TC_INV_002: Verify Item Remove from cart @smoke @regression": [
+      {
+        "passed": true,
+        "duration": 2369,
+        "timestamp": "2026-01-22T01:31:20.332Z",
+        "runId": "run-1769045473667",
+        "skipped": false,
+        "retry": 0
+      }
+    ],
+    "login.spec.ts::Invalid Credentials test @smoke": [
+      {
+        "passed": true,
+        "duration": 1220,
+        "timestamp": "2026-01-22T01:31:20.332Z",
+        "runId": "run-1769045473667",
+        "skipped": false,
+        "retry": 0
+      }
+    ]
+  },
+  "summaries": [
+    {
+      "runId": "run-1769045380034",
+      "timestamp": "2026-01-22T01:29:40.034Z",
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "flaky": 0,
+      "slow": 0,
+      "duration": 23,
+      "passRate": 0
+    },
+    {
+      "runId": "run-1769045397642",
+      "timestamp": "2026-01-22T01:29:57.642Z",
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "flaky": 0,
+      "slow": 0,
+      "duration": 11,
+      "passRate": 0
+    },
+    {
+      "runId": "run-1769045460698",
+      "timestamp": "2026-01-22T01:31:00.698Z",
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "flaky": 0,
+      "slow": 0,
+      "duration": 13,
+      "passRate": 0
+    },
+    {
+      "runId": "run-1769045473667",
+      "timestamp": "2026-01-22T01:31:13.667Z",
+      "total": 6,
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "flaky": 0,
+      "slow": 0,
+      "duration": 6665,
+      "passRate": 100
+    }
+  ],
+  "runFiles": {
+    "run-1769045380034": "./history-runs/run-1769045380034.json",
+    "run-1769045397642": "./history-runs/run-1769045397642.json",
+    "run-1769045460698": "./history-runs/run-1769045460698.json",
+    "run-1769045473667": "./history-runs/run-1769045473667.json"
+  }
+}

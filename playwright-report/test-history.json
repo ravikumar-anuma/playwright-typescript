@@ -1,0 +1,780 @@
+{
+  "runs": [
+    {
+      "runId": "run-1771658942897",
+      "timestamp": "2026-02-21T07:29:02.897Z"
+    },
+    {
+      "runId": "run-1771659054487",
+      "timestamp": "2026-02-21T07:30:54.487Z"
+    },
+    {
+      "runId": "run-1771659255099",
+      "timestamp": "2026-02-21T07:34:15.099Z"
+    },
+    {
+      "runId": "run-1771659267371",
+      "timestamp": "2026-02-21T07:34:27.371Z"
+    },
+    {
+      "runId": "run-1771659415799",
+      "timestamp": "2026-02-21T07:36:55.799Z"
+    },
+    {
+      "runId": "run-1771659760665",
+      "timestamp": "2026-02-21T07:42:40.665Z"
+    },
+    {
+      "runId": "run-1771659774960",
+      "timestamp": "2026-02-21T07:42:54.960Z"
+    },
+    {
+      "runId": "run-1773504497448",
+      "timestamp": "2026-03-14T16:08:17.448Z"
+    },
+    {
+      "runId": "run-1773504715426",
+      "timestamp": "2026-03-14T16:11:55.426Z"
+    },
+    {
+      "runId": "run-1773504744725",
+      "timestamp": "2026-03-14T16:12:24.725Z"
+    }
+  ],
+  "tests": {
+    "seed.spec.ts::seed": [
+      {
+        "passed": true,
+        "duration": 972,
+        "timestamp": "2026-01-22T01:44:47.405Z",
+        "runId": "run-1769046281275",
+        "skipped": false,
+        "retry": 0
+      }
+    ],
+    "Inventory.spec.ts::TC_INV_001: Verify Add to cart the Item @smoke @regression": [
+      {
+        "passed": true,
+        "duration": 1911,
+        "timestamp": "2026-01-22T01:44:47.405Z",
+        "runId": "run-1769046281275",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 379,
+        "timestamp": "2026-03-14T16:08:22.381Z",
+        "runId": "run-1773504497448",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 1011,
+        "timestamp": "2026-03-14T16:11:58.218Z",
+        "runId": "run-1773504715426",
+        "skipped": false,
+        "retry": 0
+      }
+    ],
+    "login.spec.ts::Sauce login test @smoke @regression": [
+      {
+        "passed": true,
+        "duration": 2678,
+        "timestamp": "2026-01-22T01:44:47.405Z",
+        "runId": "run-1769046281275",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 1,
+        "timestamp": "2026-02-21T05:47:31.416Z",
+        "runId": "run-1771652851009",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 1,
+        "timestamp": "2026-02-21T05:47:48.074Z",
+        "runId": "run-1771652867808",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 1,
+        "timestamp": "2026-02-21T05:48:00.318Z",
+        "runId": "run-1771652880059",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 60007,
+        "timestamp": "2026-02-21T06:01:59.252Z",
+        "runId": "run-1771653080559",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 60005,
+        "timestamp": "2026-02-21T06:01:59.252Z",
+        "runId": "run-1771653080559",
+        "skipped": false,
+        "retry": 1
+      },
+      {
+        "passed": false,
+        "duration": 40011,
+        "timestamp": "2026-02-21T06:11:37.070Z",
+        "runId": "run-1771654256475",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 60000,
+        "timestamp": "2026-02-21T06:32:58.284Z",
+        "runId": "run-1771655472210",
+        "skipped": false,
+        "retry": 0
+      }
+    ],
+    "login.spec.ts::DashBoard View test @smoke @regression": [
+      {
+        "passed": true,
+        "duration": 1153,
+        "timestamp": "2026-01-22T01:44:47.405Z",
+        "runId": "run-1769046281275",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 1,
+        "timestamp": "2026-02-21T05:48:59.331Z",
+        "runId": "run-1771652939056",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 60002,
+        "timestamp": "2026-02-21T06:01:59.252Z",
+        "runId": "run-1771653080559",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 60005,
+        "timestamp": "2026-02-21T06:01:59.252Z",
+        "runId": "run-1771653080559",
+        "skipped": false,
+        "retry": 1
+      }
+    ],
+    "Inventory.spec.ts::TC_INV_002: Verify Item Remove from cart @smoke @regression": [
+      {
+        "passed": true,
+        "duration": 2320,
+        "timestamp": "2026-01-22T01:44:47.405Z",
+        "runId": "run-1769046281275",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 1774,
+        "timestamp": "2026-03-14T16:12:28.168Z",
+        "runId": "run-1773504744725",
+        "skipped": false,
+        "retry": 0
+      }
+    ],
+    "login.spec.ts::Invalid Credentials test @smoke": [
+      {
+        "passed": true,
+        "duration": 1249,
+        "timestamp": "2026-01-22T01:44:47.405Z",
+        "runId": "run-1769046281275",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 60005,
+        "timestamp": "2026-02-21T06:01:59.252Z",
+        "runId": "run-1771653080559",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 60005,
+        "timestamp": "2026-02-21T06:01:59.252Z",
+        "runId": "run-1771653080559",
+        "skipped": false,
+        "retry": 1
+      }
+    ],
+    "Inventoryregression.spec.ts::TC_INV_001: Add first product to cart @regression": [
+      {
+        "passed": true,
+        "duration": 1885,
+        "timestamp": "2026-01-22T01:51:03.447Z",
+        "runId": "run-1769046653677",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 7264,
+        "timestamp": "2026-01-22T01:54:47.046Z",
+        "runId": "run-1769046864502",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 6374,
+        "timestamp": "2026-01-22T01:54:47.046Z",
+        "runId": "run-1769046864502",
+        "skipped": false,
+        "retry": 1
+      },
+      {
+        "passed": false,
+        "duration": 9101,
+        "timestamp": "2026-01-22T02:07:44.523Z",
+        "runId": "run-1769047640116",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 6354,
+        "timestamp": "2026-01-22T02:07:44.523Z",
+        "runId": "run-1769047640116",
+        "skipped": false,
+        "retry": 1
+      },
+      {
+        "passed": true,
+        "duration": 1570,
+        "timestamp": "2026-01-22T02:08:58.784Z",
+        "runId": "run-1769047728423",
+        "skipped": false,
+        "retry": 0
+      }
+    ],
+    "Inventoryregression.spec.ts::TC_INV_002: Remove product from cart @regression": [
+      {
+        "passed": true,
+        "duration": 1369,
+        "timestamp": "2026-01-22T01:51:03.447Z",
+        "runId": "run-1769046653677",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 1122,
+        "timestamp": "2026-01-22T01:54:47.046Z",
+        "runId": "run-1769046864502",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 1211,
+        "timestamp": "2026-01-22T02:07:44.523Z",
+        "runId": "run-1769047640116",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 1310,
+        "timestamp": "2026-01-22T02:08:58.784Z",
+        "runId": "run-1769047728423",
+        "skipped": false,
+        "retry": 0
+      }
+    ],
+    "Inventoryregression.spec.ts::TC_INV_003: Checkout happy path (from inventory) @regression": [
+      {
+        "passed": true,
+        "duration": 1527,
+        "timestamp": "2026-01-22T01:51:03.447Z",
+        "runId": "run-1769046653677",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 1468,
+        "timestamp": "2026-01-22T01:54:47.046Z",
+        "runId": "run-1769046864502",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 1493,
+        "timestamp": "2026-01-22T02:07:44.523Z",
+        "runId": "run-1769047640116",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 2437,
+        "timestamp": "2026-01-22T02:08:58.784Z",
+        "runId": "run-1769047728423",
+        "skipped": false,
+        "retry": 0
+      }
+    ],
+    "Inventoryregression.spec.ts::TC_INV_004: Product list renders and has items @regression": [
+      {
+        "passed": true,
+        "duration": 1271,
+        "timestamp": "2026-01-22T01:51:03.447Z",
+        "runId": "run-1769046653677",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 1163,
+        "timestamp": "2026-01-22T01:54:47.046Z",
+        "runId": "run-1769046864502",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 1278,
+        "timestamp": "2026-01-22T02:07:44.523Z",
+        "runId": "run-1769047640116",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 1290,
+        "timestamp": "2026-01-22T02:08:58.784Z",
+        "runId": "run-1769047728423",
+        "skipped": false,
+        "retry": 0
+      }
+    ],
+    "Inventoryregression.spec.ts::TC_INV_005: Product details navigation shows detail page @regression": [
+      {
+        "passed": true,
+        "duration": 1339,
+        "timestamp": "2026-01-22T01:51:03.447Z",
+        "runId": "run-1769046653677",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 1391,
+        "timestamp": "2026-01-22T01:54:47.046Z",
+        "runId": "run-1769046864502",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 1414,
+        "timestamp": "2026-01-22T02:07:44.523Z",
+        "runId": "run-1769047640116",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 1303,
+        "timestamp": "2026-01-22T02:08:58.784Z",
+        "runId": "run-1769047728423",
+        "skipped": false,
+        "retry": 0
+      }
+    ],
+    "Inventoryregression.spec.ts::TC_INV_009: Price and cart subtotal arithmetic @regression": [
+      {
+        "passed": true,
+        "duration": 1362,
+        "timestamp": "2026-01-22T01:51:03.447Z",
+        "runId": "run-1769046653677",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 1513,
+        "timestamp": "2026-01-22T01:54:47.046Z",
+        "runId": "run-1769046864502",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 1398,
+        "timestamp": "2026-01-22T02:07:44.523Z",
+        "runId": "run-1769047640116",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 1521,
+        "timestamp": "2026-01-22T02:08:58.784Z",
+        "runId": "run-1769047728423",
+        "skipped": false,
+        "retry": 0
+      }
+    ],
+    "loginregresion.spec.ts::TC_LOGIN_013: Injection attempts do not bypass authentication @regression @security": [
+      {
+        "passed": false,
+        "duration": 60002,
+        "timestamp": "2026-02-21T06:17:41.178Z",
+        "runId": "run-1771654600630",
+        "skipped": false,
+        "retry": 0
+      }
+    ],
+    "yopmail.spec.ts::Activate user profile via yopmail @smoke": [
+      {
+        "passed": false,
+        "duration": 2643,
+        "timestamp": "2026-02-21T07:34:23.830Z",
+        "runId": "run-1771659255099",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 1830,
+        "timestamp": "2026-02-21T07:34:23.830Z",
+        "runId": "run-1771659255099",
+        "skipped": false,
+        "retry": 1
+      },
+      {
+        "passed": false,
+        "duration": 30385,
+        "timestamp": "2026-02-21T07:36:03.963Z",
+        "runId": "run-1771659267371",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 30492,
+        "timestamp": "2026-02-21T07:36:03.963Z",
+        "runId": "run-1771659267371",
+        "skipped": false,
+        "retry": 1
+      },
+      {
+        "passed": false,
+        "duration": 60003,
+        "timestamp": "2026-02-21T07:42:39.784Z",
+        "runId": "run-1771659415799",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 60001,
+        "timestamp": "2026-02-21T07:42:39.784Z",
+        "runId": "run-1771659415799",
+        "skipped": false,
+        "retry": 1
+      },
+      {
+        "passed": false,
+        "duration": 2808,
+        "timestamp": "2026-02-21T07:42:48.968Z",
+        "runId": "run-1771659760665",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 1463,
+        "timestamp": "2026-02-21T07:42:48.968Z",
+        "runId": "run-1771659760665",
+        "skipped": false,
+        "retry": 1
+      },
+      {
+        "passed": false,
+        "duration": 30391,
+        "timestamp": "2026-02-21T07:44:17.506Z",
+        "runId": "run-1771659774960",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 27717,
+        "timestamp": "2026-02-21T07:44:17.506Z",
+        "runId": "run-1771659774960",
+        "skipped": false,
+        "retry": 1
+      }
+    ],
+    "yopmail.spec.ts::Get activation link from email @smoke": [
+      {
+        "passed": false,
+        "duration": 4573,
+        "timestamp": "2026-02-21T07:34:14.332Z",
+        "runId": "run-1771659054487",
+        "skipped": false,
+        "retry": 1
+      },
+      {
+        "passed": false,
+        "duration": 1284,
+        "timestamp": "2026-02-21T07:34:23.830Z",
+        "runId": "run-1771659255099",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 964,
+        "timestamp": "2026-02-21T07:34:23.830Z",
+        "runId": "run-1771659255099",
+        "skipped": false,
+        "retry": 1
+      },
+      {
+        "passed": false,
+        "duration": 30516,
+        "timestamp": "2026-02-21T07:36:03.963Z",
+        "runId": "run-1771659267371",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 2797,
+        "timestamp": "2026-02-21T07:36:03.963Z",
+        "runId": "run-1771659267371",
+        "skipped": false,
+        "retry": 1
+      },
+      {
+        "passed": false,
+        "duration": 60003,
+        "timestamp": "2026-02-21T07:42:39.784Z",
+        "runId": "run-1771659415799",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 53717,
+        "timestamp": "2026-02-21T07:42:39.784Z",
+        "runId": "run-1771659415799",
+        "skipped": false,
+        "retry": 1
+      },
+      {
+        "passed": false,
+        "duration": 1042,
+        "timestamp": "2026-02-21T07:42:48.968Z",
+        "runId": "run-1771659760665",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 878,
+        "timestamp": "2026-02-21T07:42:48.968Z",
+        "runId": "run-1771659760665",
+        "skipped": false,
+        "retry": 1
+      },
+      {
+        "passed": true,
+        "duration": 22651,
+        "timestamp": "2026-02-21T07:44:17.506Z",
+        "runId": "run-1771659774960",
+        "skipped": false,
+        "retry": 0
+      }
+    ],
+    "auth.setup.ts::Authenticate and save storage state": [
+      {
+        "passed": true,
+        "duration": 1916,
+        "timestamp": "2026-03-14T16:08:22.381Z",
+        "runId": "run-1773504497448",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 1265,
+        "timestamp": "2026-03-14T16:11:58.218Z",
+        "runId": "run-1773504715426",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": true,
+        "duration": 1131,
+        "timestamp": "2026-03-14T16:12:28.168Z",
+        "runId": "run-1773504744725",
+        "skipped": false,
+        "retry": 0
+      }
+    ]
+  },
+  "summaries": [
+    {
+      "runId": "run-1771658942897",
+      "timestamp": "2026-02-21T07:29:02.897Z",
+      "total": 4,
+      "passed": 0,
+      "failed": 4,
+      "skipped": 0,
+      "flaky": 4,
+      "slow": 0,
+      "duration": 15895,
+      "passRate": 0
+    },
+    {
+      "runId": "run-1771659054487",
+      "timestamp": "2026-02-21T07:30:54.487Z",
+      "total": 4,
+      "passed": 0,
+      "failed": 4,
+      "skipped": 0,
+      "flaky": 4,
+      "slow": 2,
+      "duration": 199846,
+      "passRate": 0
+    },
+    {
+      "runId": "run-1771659255099",
+      "timestamp": "2026-02-21T07:34:15.099Z",
+      "total": 4,
+      "passed": 0,
+      "failed": 4,
+      "skipped": 0,
+      "flaky": 4,
+      "slow": 0,
+      "duration": 8731,
+      "passRate": 0
+    },
+    {
+      "runId": "run-1771659267371",
+      "timestamp": "2026-02-21T07:34:27.371Z",
+      "total": 4,
+      "passed": 0,
+      "failed": 4,
+      "skipped": 0,
+      "flaky": 4,
+      "slow": 4,
+      "duration": 96592,
+      "passRate": 0
+    },
+    {
+      "runId": "run-1771659415799",
+      "timestamp": "2026-02-21T07:36:55.799Z",
+      "total": 4,
+      "passed": 0,
+      "failed": 4,
+      "skipped": 0,
+      "flaky": 4,
+      "slow": 4,
+      "duration": 343984,
+      "passRate": 0
+    },
+    {
+      "runId": "run-1771659760665",
+      "timestamp": "2026-02-21T07:42:40.665Z",
+      "total": 4,
+      "passed": 0,
+      "failed": 4,
+      "skipped": 0,
+      "flaky": 4,
+      "slow": 0,
+      "duration": 8303,
+      "passRate": 0
+    },
+    {
+      "runId": "run-1771659774960",
+      "timestamp": "2026-02-21T07:42:54.960Z",
+      "total": 3,
+      "passed": 1,
+      "failed": 2,
+      "skipped": 0,
+      "flaky": 3,
+      "slow": 1,
+      "duration": 82546,
+      "passRate": 33
+    },
+    {
+      "runId": "run-1773504497448",
+      "timestamp": "2026-03-14T16:08:17.448Z",
+      "total": 2,
+      "passed": 1,
+      "failed": 1,
+      "skipped": 0,
+      "flaky": 0,
+      "slow": 0,
+      "duration": 4932,
+      "passRate": 50
+    },
+    {
+      "runId": "run-1773504715426",
+      "timestamp": "2026-03-14T16:11:55.426Z",
+      "total": 2,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "flaky": 1,
+      "slow": 0,
+      "duration": 2792,
+      "passRate": 100
+    },
+    {
+      "runId": "run-1773504744725",
+      "timestamp": "2026-03-14T16:12:24.725Z",
+      "total": 2,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "flaky": 0,
+      "slow": 0,
+      "duration": 3443,
+      "passRate": 100
+    }
+  ],
+  "runFiles": {
+    "run-1771658942897": "./history-runs/run-1771658942897.json",
+    "run-1771659054487": "./history-runs/run-1771659054487.json",
+    "run-1771659255099": "./history-runs/run-1771659255099.json",
+    "run-1771659267371": "./history-runs/run-1771659267371.json",
+    "run-1771659415799": "./history-runs/run-1771659415799.json",
+    "run-1771659760665": "./history-runs/run-1771659760665.json",
+    "run-1771659774960": "./history-runs/run-1771659774960.json",
+    "run-1773504497448": "./history-runs/run-1773504497448.json",
+    "run-1773504715426": "./history-runs/run-1773504715426.json",
+    "run-1773504744725": "./history-runs/run-1773504744725.json"
+  }
+}

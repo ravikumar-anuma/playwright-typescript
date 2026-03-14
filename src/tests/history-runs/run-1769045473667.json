@@ -1,0 +1,449 @@
+{
+  "runId": "run-1769045473667",
+  "timestamp": "2026-01-22T01:31:13.667Z",
+  "tests": {
+    "seed.spec.ts::seed": {
+      "testId": "seed.spec.ts::seed",
+      "title": "seed",
+      "file": "seed.spec.ts",
+      "status": "passed",
+      "duration": 1175,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Launch browser",
+          "duration": 844,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create context",
+          "duration": 10,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 1032,
+          "category": "pw:api",
+          "isSlowest": true
+        },
+        {
+          "title": "Close context",
+          "duration": 42,
+          "category": "pw:api"
+        }
+      ],
+      "attachments": {
+        "screenshots": [],
+        "videos": [
+          "/Users/ravianuma/Documents/Playwright/test-results/seed-Test-group-seed-chromium/video.webm"
+        ],
+        "traces": []
+      }
+    },
+    "Inventory.spec.ts::TC_INV_001: Verify Add to cart the Item @smoke @regression": {
+      "testId": "Inventory.spec.ts::TC_INV_001: Verify Add to cart the Item @smoke @regression",
+      "title": "TC_INV_001: Verify Add to cart the Item @smoke @regression",
+      "file": "Inventory.spec.ts",
+      "status": "passed",
+      "duration": 2340,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Launch browser",
+          "duration": 843,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create context",
+          "duration": 10,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 1037,
+          "category": "pw:api",
+          "isSlowest": true
+        },
+        {
+          "title": "Navigate to \"/\"",
+          "duration": 668,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"standard_user\" locator('#user-name')",
+          "duration": 34,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"secret_sauce\" locator('#password')",
+          "duration": 54,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click locator('#login-button')",
+          "duration": 96,
+          "category": "pw:api"
+        },
+        {
+          "title": "Verify Add to Cart Item functionality",
+          "duration": 42,
+          "category": "test.step"
+        },
+        {
+          "title": "Click locator('[data-test=\"add-to-cart-sauce-labs-backpack\"]')",
+          "duration": 34,
+          "category": "pw:api"
+        },
+        {
+          "title": "Verify Checkout and Fill the Shipping address Information",
+          "duration": 291,
+          "category": "test.step"
+        },
+        {
+          "title": "Click locator('.shopping_cart_badge')",
+          "duration": 70,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click getByRole('button', { name: 'Checkout' })",
+          "duration": 66,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"Ravi\" getByRole('textbox', { name: 'First Name' })",
+          "duration": 5,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"Anuma\" getByRole('textbox', { name: 'Last Name' })",
+          "duration": 7,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"500088\" getByRole('textbox', { name: 'Postal Code' })",
+          "duration": 6,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click getByRole('button', { name: 'Continue' })",
+          "duration": 67,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click getByRole('button', { name: 'Finish' })",
+          "duration": 61,
+          "category": "pw:api"
+        },
+        {
+          "title": "Close context",
+          "duration": 40,
+          "category": "pw:api"
+        }
+      ],
+      "attachments": {
+        "screenshots": [],
+        "videos": [
+          "/Users/ravianuma/Documents/Playwright/test-results/Inventory-TC-INV-001-Verif-3fa5a-t-the-Item-smoke-regression-chromium/video.webm"
+        ],
+        "traces": []
+      }
+    },
+    "login.spec.ts::Sauce login test @smoke @regression": {
+      "testId": "login.spec.ts::Sauce login test @smoke @regression",
+      "title": "Sauce login test @smoke @regression",
+      "file": "login.spec.ts",
+      "status": "passed",
+      "duration": 3007,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Launch browser",
+          "duration": 844,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create context",
+          "duration": 9,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 1035,
+          "category": "pw:api",
+          "isSlowest": true
+        },
+        {
+          "title": "Login to application",
+          "duration": 892,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/\"",
+          "duration": 671,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"standard_user\" locator('#user-name')",
+          "duration": 76,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"secret_sauce\" locator('#password')",
+          "duration": 39,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click locator('#login-button')",
+          "duration": 96,
+          "category": "pw:api"
+        },
+        {
+          "title": "Verify Inventory Page URL",
+          "duration": 10,
+          "category": "test.step"
+        },
+        {
+          "title": "Logout from application",
+          "duration": 980,
+          "category": "test.step"
+        },
+        {
+          "title": "Click locator('#react-burger-menu-btn')",
+          "duration": 29,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click locator('#logout_sidebar_link')",
+          "duration": 950,
+          "category": "pw:api"
+        },
+        {
+          "title": "Close context",
+          "duration": 29,
+          "category": "pw:api"
+        }
+      ],
+      "attachments": {
+        "screenshots": [],
+        "videos": [
+          "/Users/ravianuma/Documents/Playwright/test-results/login-Sauce-login-test-smoke-regression-chromium/video.webm"
+        ],
+        "traces": []
+      }
+    },
+    "login.spec.ts::DashBoard View test @smoke @regression": {
+      "testId": "login.spec.ts::DashBoard View test @smoke @regression",
+      "title": "DashBoard View test @smoke @regression",
+      "file": "login.spec.ts",
+      "status": "passed",
+      "duration": 1176,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 3,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 535,
+          "category": "pw:api",
+          "isSlowest": true
+        },
+        {
+          "title": "Login to application",
+          "duration": 526,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/\"",
+          "duration": 428,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"standard_user\" locator('#user-name')",
+          "duration": 14,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"secret_sauce\" locator('#password')",
+          "duration": 5,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click locator('#login-button')",
+          "duration": 76,
+          "category": "pw:api"
+        },
+        {
+          "title": "Verify Swag Labs Text Verification",
+          "duration": 4,
+          "category": "test.step"
+        },
+        {
+          "title": "Close context",
+          "duration": 45,
+          "category": "pw:api"
+        }
+      ],
+      "attachments": {
+        "screenshots": [],
+        "videos": [
+          "/Users/ravianuma/Documents/Playwright/test-results/login-DashBoard-View-test-smoke-regression-chromium/video.webm"
+        ],
+        "traces": []
+      }
+    },
+    "Inventory.spec.ts::TC_INV_002: Verify Item Remove from cart @smoke @regression": {
+      "testId": "Inventory.spec.ts::TC_INV_002: Verify Item Remove from cart @smoke @regression",
+      "title": "TC_INV_002: Verify Item Remove from cart @smoke @regression",
+      "file": "Inventory.spec.ts",
+      "status": "passed",
+      "duration": 2369,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 2,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 677,
+          "category": "pw:api"
+        },
+        {
+          "title": "Navigate to \"/\"",
+          "duration": 351,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"standard_user\" locator('#user-name')",
+          "duration": 14,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"secret_sauce\" locator('#password')",
+          "duration": 38,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click locator('#login-button')",
+          "duration": 64,
+          "category": "pw:api"
+        },
+        {
+          "title": "Verify Add to Cart Item functionality",
+          "duration": 32,
+          "category": "test.step"
+        },
+        {
+          "title": "Click locator('[data-test=\"add-to-cart-sauce-labs-backpack\"]')",
+          "duration": 28,
+          "category": "pw:api"
+        },
+        {
+          "title": "Verify Item Remove from Cart functionality",
+          "duration": 38,
+          "category": "test.step"
+        },
+        {
+          "title": "Click locator('[data-test=\"remove-sauce-labs-backpack\"]')",
+          "duration": 34,
+          "category": "pw:api"
+        },
+        {
+          "title": "Logout from application",
+          "duration": 975,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "Click locator('#react-burger-menu-btn')",
+          "duration": 28,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click locator('#logout_sidebar_link')",
+          "duration": 947,
+          "category": "pw:api"
+        },
+        {
+          "title": "Close context",
+          "duration": 29,
+          "category": "pw:api"
+        }
+      ],
+      "attachments": {
+        "screenshots": [],
+        "videos": [
+          "/Users/ravianuma/Documents/Playwright/test-results/Inventory-TC-INV-002-Verif-be63f--from-cart-smoke-regression-chromium/video.webm"
+        ],
+        "traces": []
+      }
+    },
+    "login.spec.ts::Invalid Credentials test @smoke": {
+      "testId": "login.spec.ts::Invalid Credentials test @smoke",
+      "title": "Invalid Credentials test @smoke",
+      "file": "login.spec.ts",
+      "status": "passed",
+      "duration": 1220,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "Create context",
+          "duration": 2,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 690,
+          "category": "pw:api",
+          "isSlowest": true
+        },
+        {
+          "title": "Login to application",
+          "duration": 436,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/\"",
+          "duration": 365,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"invalid_user\" locator('#user-name')",
+          "duration": 14,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"invalid_password\" locator('#password')",
+          "duration": 26,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click locator('#login-button')",
+          "duration": 31,
+          "category": "pw:api"
+        },
+        {
+          "title": "Verify Invalid Credentials Error Message",
+          "duration": 4,
+          "category": "test.step"
+        },
+        {
+          "title": "Close context",
+          "duration": 34,
+          "category": "pw:api"
+        }
+      ],
+      "attachments": {
+        "screenshots": [],
+        "videos": [
+          "/Users/ravianuma/Documents/Playwright/test-results/login-Invalid-Credentials-test-smoke-chromium/video.webm"
+        ],
+        "traces": []
+      }
+    }
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "runId": "run-1773504744725",
+  "timestamp": "2026-03-14T16:12:24.725Z",
+  "tests": {
+    "auth.setup.ts::Authenticate and save storage state": {
+      "testId": "auth.setup.ts::Authenticate and save storage state",
+      "title": "Authenticate and save storage state",
+      "file": "auth.setup.ts",
+      "status": "passed",
+      "duration": 1131,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "connect",
+          "duration": 18,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 555,
+          "category": "pw:api",
+          "isSlowest": true
+        },
+        {
+          "title": "Navigate to login page",
+          "duration": 412,
+          "category": "test.step"
+        },
+        {
+          "title": "Navigate to \"/\"",
+          "duration": 406,
+          "category": "pw:api"
+        },
+        {
+          "title": "Login with valid credentials",
+          "duration": 86,
+          "category": "test.step"
+        },
+        {
+          "title": "Fill \"standard_user\" locator('#user-name')",
+          "duration": 14,
+          "category": "pw:api"
+        },
+        {
+          "title": "Fill \"secret_sauce\" locator('#password')",
+          "duration": 3,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click locator('#login-button')",
+          "duration": 64,
+          "category": "pw:api"
+        },
+        {
+          "title": "Get storage state",
+          "duration": 2,
+          "category": "pw:api"
+        }
+      ]
+    },
+    "Inventory.spec.ts::TC_INV_002: Verify Item Remove from cart @smoke @regression": {
+      "testId": "Inventory.spec.ts::TC_INV_002: Verify Item Remove from cart @smoke @regression",
+      "title": "TC_INV_002: Verify Item Remove from cart @smoke @regression",
+      "file": "Inventory.spec.ts",
+      "status": "passed",
+      "duration": 1774,
+      "retry": 0,
+      "steps": [
+        {
+          "title": "connect",
+          "duration": 20,
+          "category": "pw:api"
+        },
+        {
+          "title": "Create page",
+          "duration": 111,
+          "category": "pw:api"
+        },
+        {
+          "title": "Navigate to \"/inventory.html\"",
+          "duration": 356,
+          "category": "pw:api"
+        },
+        {
+          "title": "Verify Add to Cart Item functionality",
+          "duration": 56,
+          "category": "test.step"
+        },
+        {
+          "title": "Click locator('[data-test=\"add-to-cart-sauce-labs-backpack\"]')",
+          "duration": 48,
+          "category": "pw:api"
+        },
+        {
+          "title": "Verify Item Remove from Cart functionality",
+          "duration": 37,
+          "category": "test.step"
+        },
+        {
+          "title": "Click locator('[data-test=\"remove-sauce-labs-backpack\"]')",
+          "duration": 33,
+          "category": "pw:api"
+        },
+        {
+          "title": "Logout from application",
+          "duration": 1003,
+          "category": "test.step",
+          "isSlowest": true
+        },
+        {
+          "title": "Click locator('#react-burger-menu-btn')",
+          "duration": 37,
+          "category": "pw:api"
+        },
+        {
+          "title": "Click locator('#logout_sidebar_link')",
+          "duration": 964,
+          "category": "pw:api"
+        }
+      ]
+    }
+  }
+}

@@ -1,13 +1,10 @@
 import { test, expect } from '@playwright/test';
 import { InventoryPage } from '../pages/InventoryPage';
-import { LoginData } from '../testdata/LoginData';
-import { LoginPage } from '../pages/LoginPage';
 
 
 test.beforeEach(async ({ page }) => {
-  const loginPage = new LoginPage(page);
-  await loginPage.navigate();
-  await loginPage.login(LoginData.username, LoginData.password);
+  // Navigate to inventory page - storage state provides authentication automatically
+  await page.goto('https://www.saucedemo.com/inventory.html');
 });
 
 test('TC_INV_001: Verify Add to cart the Item @smoke @regression', async ({ page }) => {

@@ -4,12 +4,9 @@ import { LoginPage } from '../pages/LoginPage';
 import { LoginData } from '../testdata/LoginData';
 import { InventoryPage } from '../pages/InventoryPage';
 
-test('Sauce login test @smoke @regression', async ({ page }) => {
-
-  await test.step('Login to application', async () => {
-    const loginPage = new LoginPage(page);
-    await loginPage.navigate();
-    await loginPage.login(LoginData.username, LoginData.password);
+test('Verify Inventory Page URL with authenticated user @smoke @regression', async ({ page }) => {
+  await test.step('Navigate to inventory page', async () => {
+    await page.goto('/inventory.html');
   });
   
   await test.step('Verify Inventory Page URL', async () => {
@@ -22,11 +19,10 @@ test('Sauce login test @smoke @regression', async ({ page }) => {
   });
 });
 
-test('DashBoard View test @smoke @regression', async ({ page }) => {
+test('DashBoard View test with authenticated user @smoke @regression', async ({ page }) => {
   const loginPage = new LoginPage(page);
-  await test.step('Login to application', async () => {
+  await test.step('Navigate to application', async () => {
     await loginPage.navigate();
-    await loginPage.login(LoginData.username, LoginData.password);
   });
   await test.step('Verify Swag Labs Text Verification', async () => {
     await loginPage.verifySwagLabsText();
